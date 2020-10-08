@@ -42,7 +42,6 @@ mongo_ubuntu_install() {
    sudo apt-get install -y mongodb-org
    sudo systemctl start mongod
    sudo systemctl enable mongod
-   sudo systemctl status mongod
 }
 
 mongo_centos_install() {
@@ -50,7 +49,6 @@ mongo_centos_install() {
    sudo yum install -y mongodb-org
    sudo systemctl start mongod
    sudo systemctl enable mongod
-   sudo systemctl status mongod
 }
 
 if [[ $DISTRO = "centos" ]]; then
