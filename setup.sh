@@ -11,6 +11,7 @@ fi
 DISTRO=$1
 
 check_pakage_install() {
+   echo "---------------- install dependency -----------------"
    if [[ $DISTRO = "centos" ]]; then
 	yum install -y curl wget
    elif [[ $DISTRO = "ubuntu" ]]; then
@@ -33,6 +34,13 @@ node_centos_install() {
    yum install -y nodejs
 }
 
+if [[ $DISTRO = "centos" ]]; then
+        node_centos_install
+elif [[ $DISTRO = "ubuntu" ]]; then
+        node_ubuntu_install
+fi
+
+
 # install mongodb
 echo "---------------- install mongodb -----------------"
 
@@ -53,10 +61,8 @@ mongo_centos_install() {
 }
 
 if [[ $DISTRO = "centos" ]]; then
-	node_centos_install
-        mongo_centos_install
+	mongo_centos_install
 elif [[ $DISTRO = "ubuntu" ]]; then
-	node_ubuntu_install
         mongo_ubuntu_install
 fi
 
