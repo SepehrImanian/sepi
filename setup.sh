@@ -30,6 +30,7 @@ node_ubuntu_install() {
 
 node_centos_install() {
    curl -sL https://rpm.nodesource.com/setup_12.x | bash -
+   yum install -y nodejs
 }
 
 # install mongodb
@@ -45,10 +46,10 @@ mongo_ubuntu_install() {
 }
 
 mongo_centos_install() {
-   cp ./mongodb-org-4.4.repo /etc/yum.repos.d/
-   sudo yum install -y mongodb-org
-   sudo systemctl start mongod
-   sudo systemctl enable mongod
+   cp mongodb-org-4.4.repo /etc/yum.repos.d/mongodb-org-4.4.repo
+   yum install -y mongodb-org
+   systemctl start mongod
+   systemctl enable mongod
 }
 
 if [[ $DISTRO = "centos" ]]; then
