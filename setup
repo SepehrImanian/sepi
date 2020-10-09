@@ -4,69 +4,111 @@
 
 if [ -z "$1" ] || [ "$1" = "-h" ] || [ "$1" = "--help" ]; then
    echo "you should use ubuntu/centos for first flag like this:"
-   echo "./setup.sh ubuntu/centos"
+   echo "./setup.sh ubuntu/centos install              install nodejs,mongodb,pm2"
+   echo "./setup.sh ubuntu/centos program_name         or install specific program"
+   echo "program => nodejs,mongodb,pm2,nodemon"
    exit 1
 fi
 
 DISTRO=$1
+APP=$2
 
 check_pakage_install() {
    echo "---------------- install dependency -----------------"
    if [[ $DISTRO = "centos" ]]; then
-	yum install -y curl wget
+	yum install -y curl wget vim
    elif [[ $DISTRO = "ubuntu" ]]; then
-        apt install -y curl wget
+        apt install -y curl wget vim
    fi
 }
 
-check_pakage_install
-
 # install nodejs
-echo "---------------- install nodejs -----------------"
 
-node_ubuntu_install() {
-   curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash -
-   sudo apt-get install -y nodejs
-}
+_nodejs () {
 
-node_centos_install() {
-   curl -sL https://rpm.nodesource.com/setup_12.x | bash -
-   yum install -y nodejs
-}
+   echo "---------------- install nodejs -----------------"
 
-if [[ $DISTRO = "centos" ]]; then
+   node_ubuntu_install() {
+      curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash -
+      sudo apt-get install -y nodejs
+   }
+
+   node_centos_install() {
+      curl -sL https://rpm.nodesource.com/setup_12.x | bash -
+      yum install -y nodejs
+   }
+
+   if [[ $DISTRO = "centos" ]]; then
         node_centos_install
-elif [[ $DISTRO = "ubuntu" ]]; then
+   elif [[ $DISTRO = "ubuntu" ]]; then
         node_ubuntu_install
-fi
+   fi
+
+}
 
 
 # install mongodb
-echo "---------------- install mongodb -----------------"
 
-mongo_ubuntu_install() {
-   wget -qO - https://www.mongodb.org/static/pgp/server-4.4.asc | sudo apt-key add -
-   echo "deb [ arch=amd64,arm64 ] https://repo.mongodb.org/apt/ubuntu focal/mongodb-org/4.4 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-4.4.list
-   sudo apt-get update
-   sudo apt-get install -y mongodb-org
-   sudo systemctl start mongod
-   sudo systemctl enable mongod
-}
+_mongodb() {
 
-mongo_centos_install() {
-   cp mongodb-org-4.4.repo /etc/yum.repos.d/mongodb-org-4.4.repo
-   yum install -y mongodb-org
-   systemctl start mongod
-   systemctl enable mongod
-}
+   echo "---------------- install mongodb -----------------"
 
-if [[ $DISTRO = "centos" ]]; then
-	mongo_centos_install
-elif [[ $DISTRO = "ubuntu" ]]; then
+   mongo_ubuntu_install() {
+      wget -qO - https://www.mongodb.org/static/pgp/server-4.4.asc | sudo apt-key add -
+      echo "deb [ arch=amd64,arm64 ] https://repo.mongodb.org/apt/ubuntu focal/mongodb-org/4.4 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-4.4.list
+      sudo apt-get update
+      sudo apt-get install -y mongodb-org
+      sudo systemctl start mongod
+      sudo systemctl enable mongod
+   }
+
+   mongo_centos_install() {
+      cp mongodb-org-4.4.repo /etc/yum.repos.d/mongodb-org-4.4.repo
+      yum install -y mongodb-org
+      systemctl start mongod
+      systemctl enable mongod
+   }
+
+   if [[ $DISTRO = "centos" ]]; then
+        mongo_centos_install
+   elif [[ $DISTRO = "ubuntu" ]]; then
         mongo_ubuntu_install
-fi
+   fi
+
+}
 
 # install nodemon
-echo "---------------- install nodemon -----------------"
-npm i -g nodemon
 
+_nodemon() {
+   echo "---------------- install nodemon -----------------"
+   npm i -g nodemon
+}
+
+# install pm2
+
+_pm2() {
+   echo "---------------- install pm2 -----------------"
+   npm install pm2@latest -g
+}
+
+
+if [[ "$APP" = "install" ]]; then
+    check_pakage_install
+    _nodejs
+    _mongodb
+    _pm2
+elif [[ "$APP" = "nodejs" ]]; then
+    check_pakage_install
+    _nodejs
+elif [[ "$APP" = "mongodb" ]]; then
+    check_pakage_install
+    _mongodb
+elif [[ "$APP" = "pm2" ]]; then
+    check_pakage_install
+    _nodejs
+    _pm2   
+elif [[ "$APP" = "nodemon" ]]; then
+    check_pakage_install
+    _nodejs
+    _nodemon
+fi
