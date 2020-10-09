@@ -2,27 +2,32 @@
 ## prepare nodejs server for production and manage your firewall
 
 -----------------------------------------------
-This script for install mongodb and nodejs and nodemon in centos/ubuntu machines
+This script for installing **mongodb , nodejs , nodemon , pm2** in centos or ubuntu machines but you can choose which one of them do you want to install
 
-### Install setup
+### Getstart "setup" script
 ```bash
 git clone https://github.com/SepehrImanian/sepi.git
 cd sepi
 chmod 755 setup
-./setup centos
+./setup centos install
 ```
+
+> if you install *mongo* or *nodejs* automatically **curl** , **wget** , **vim**  install as dependency
 
 Script | Usage
 ------------- | --------------
 `./setup --help,-h` | help command
-`./setup centos` | for install in centos machine
-`./setup ubuntu` | for install in ubuntu machine
-
+`./setup centos install` | for install **mongodb** , **nodejs** , **pm2** in centos machine
+`./setup ubuntu install` | for install for install **mongodb** , **nodejs** , **pm2** in ubuntu machine
+`./setup ubuntu/centos mongodb` | for install **mongodb** in ubuntu/centos machine
+`./setup ubuntu/centos nodejs` | for install **nodejs** in ubuntu/centos machine
+`./setup ubuntu/centos pm2` | for install **pm2** in ubuntu/centos machine (automatically install nodejs before install pm2)
+`./setup ubuntu/centos nodemon` | for install **nodemon** in ubuntu/centos machine (automatically install nodejs before install nodemon)
 ----------------------------------------
 
 This script help you to *open/close/status* of firewall ports in centos or ubuntu distribution
 
-### Install sepi
+### Getstart "sepi" script
 ```bash
 git clone https://github.com/SepehrImanian/sepi.git
 cd sepi
@@ -32,7 +37,6 @@ sepi ubuntu/centos install
 ```
 
 For using sepi the following table help you to find out
-
 
 Script | Usage
 ------------- | --------------
