@@ -28,6 +28,7 @@ git clone https://github.com/SepehrImanian/sepi.git
 cd sepi
 chmod 755 sepi
 ./sepi install
+sepi ubuntu/centos install
 ```
 
 For using sepi the following table help you to find out
@@ -37,7 +38,7 @@ Script | Usage
 ------------- | --------------
 `-h,--help`                         | help command
 `install`                           | install sepi in path
-`ubuntu/centos`                     | which distribution do you want use centos or ubuntu
+`ubuntu/centos`                     | which distribution do you want to use centos or ubuntu
 `ubuntu/centos install`             | for install centos or ubuntu dependency
 `ubuntu/centos status`              | status of open or close ports of firewall
 `ubuntu/centos port open port_number` | for open port of this machine/server
