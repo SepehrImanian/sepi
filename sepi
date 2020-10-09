@@ -6,10 +6,10 @@ FLAG=$3
 PORT=$4
 
 if [ -z "$1" ] || [ "$1" = "-h" ] || [ "$1" = "--help" ]; then
-   cat ./manual/help.txt
+   cat /usr/bin/manual/help.txt
    exit 1
-elif [[ $DISTRO = "ubuntu" ]] || [[ $DISTRO = "centos" ]]; then
-   cat ./manual/help_distro.txt
+elif [[ $DISTRO = "ubuntu" ]] || [[ $DISTRO = "centos" ]] && [[ -z "$2" ]]; then
+   cat /usr/bin/manual/help_distro.txt
    exit 1
 fi
 
@@ -26,8 +26,9 @@ check_pakage_install() {
 	y
 	echo "ubuntu dependency installed"
    elif [[ "$DISTRO" = "install" ]]; then
-	# add to path  
-	echo "sepi install"
+	cp sepi /usr/bin
+	cp -r ./manual /usr/bin
+	echo "sepi installed"
    fi
 
 }
