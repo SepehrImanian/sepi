@@ -1,5 +1,5 @@
 # Sepi
-## installation nodejs stuff and manage your firewall
+## prepare nodejs server for production and manage your firewall
 
 This script for install mongodb and nodejs and nodemon in centos/ubuntu machines
 
@@ -11,7 +11,6 @@ cd sepi
 chmod 755 setup
 ./setup centos
 ```
------------------------------------------------
 
 Script | Usage
 ------------- | --------------
@@ -19,6 +18,7 @@ Script | Usage
 `./setup centos` | for install in centos machine
 `./setup ubuntu` | for install in ubuntu machine
 
+----------------------------------------
 
 This script help you to *open/close/status* of firewall ports in centos or ubuntu distribution
 
