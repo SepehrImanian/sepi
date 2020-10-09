@@ -1,9 +1,9 @@
 # Sepi
 ## prepare nodejs server for production and manage your firewall
 
+-----------------------------------------------
 This script for install mongodb and nodejs and nodemon in centos/ubuntu machines
 
------------------------------------------------
 ### Install setup
 ```bash
 git clone https://github.com/SepehrImanian/sepi.git
@@ -55,7 +55,13 @@ centos | http=80/tcp , https=443/tcp (tcp or udp protocol)
 sepi centos port open 80/tcp
 sepi centos status
 
+sepi centos port close 443/tcp
+sepi centos status
+
 sepi ubuntu port open 443
+sepi ubuntu status
+
+sepi ubuntu port close 80
 sepi ubuntu status
 ```
 
