@@ -5,6 +5,14 @@ COMMAND=$2
 FLAG=$3
 PORT=$4
 
+if [ -z "$1" ] || [ "$1" = "-h" ] || [ "$1" = "--help" ]; then
+   cat ./manual/help.txt
+   exit 1
+elif [[ $DISTRO = "ubuntu" ]] || [[ $DISTRO = "centos" ]]; then
+   cat ./manual/help_distro.txt
+   exit 1
+fi
+
 check_pakage_install() {
 
    if [[ $DISTRO = "centos" ]] && [[ "$COMMAND" = "install" ]]; then

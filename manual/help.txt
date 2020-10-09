@@ -1,0 +1,10 @@
+-h,--help                               help command
+install                                 install sepi in path
+ubuntu/centos                           which distribution do you want use centos or ubuntu
+ubuntu/centos install                   for install centos or ubuntu dependency
+ubuntu/centos status                    status of open or close ports of firewall
+ubuntu/centos port open port_number     for open port of this machine/server
+ubuntu/centos port close port_number    for colse port of this machine/server
+--------------------------------------------------------------------------------------------
+ubuntu ==> http=80 , https=443
+centos ==> http=80/tcp , https=443/tcp  ==> tcp or udp protocol
