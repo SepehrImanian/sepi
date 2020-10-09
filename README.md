@@ -18,7 +18,7 @@ Script | Usage
 ------------- | --------------
 `./setup --help,-h` | help command
 `./setup centos install` | for install **mongodb** , **nodejs** , **pm2** in centos machine/server
-`./setup ubuntu install` | for install for install **mongodb** , **nodejs** , **pm2** in ubuntu machine/servermachine/server
+`./setup ubuntu install` | for install for install **mongodb** , **nodejs** , **pm2** in ubuntu machine/server
 `./setup ubuntu/centos mongodb` | for install **mongodb** in ubuntu/centos machine/server
 `./setup ubuntu/centos nodejs` | for install **nodejs** in ubuntu/centos machine/server
 `./setup ubuntu/centos pm2` | for install **pm2** in ubuntu/centos machine/server (automatically install nodejs before install pm2)
