@@ -2,7 +2,7 @@
 ## prepare nodejs server for production and manage your firewall
 
 -----------------------------------------------
-This script for installing **mongodb , nodejs , nodemon , pm2** in centos or ubuntu server but you can choose which one of them do you want to install
+This script for installing **mongodb , nodejs , nodemon , pm2** in centos or ubuntu machine/server but you can choose which one of them do you want to install
 
 ### Getstart "setup" script
 ```bash
@@ -17,12 +17,12 @@ chmod 755 setup
 Script | Usage
 ------------- | --------------
 `./setup --help,-h` | help command
-`./setup centos install` | for install **mongodb** , **nodejs** , **pm2** in centos server
-`./setup ubuntu install` | for install for install **mongodb** , **nodejs** , **pm2** in ubuntu server
-`./setup ubuntu/centos mongodb` | for install **mongodb** in ubuntu/centos server
-`./setup ubuntu/centos nodejs` | for install **nodejs** in ubuntu/centos server
-`./setup ubuntu/centos pm2` | for install **pm2** in ubuntu/centos server (automatically install nodejs before install pm2)
-`./setup ubuntu/centos nodemon` | for install **nodemon** in ubuntu/centos server (automatically install nodejs before install nodemon)
+`./setup centos install` | for install **mongodb** , **nodejs** , **pm2** in centos machine/server
+`./setup ubuntu install` | for install for install **mongodb** , **nodejs** , **pm2** in ubuntu machine/servermachine/server
+`./setup ubuntu/centos mongodb` | for install **mongodb** in ubuntu/centos machine/server
+`./setup ubuntu/centos nodejs` | for install **nodejs** in ubuntu/centos machine/server
+`./setup ubuntu/centos pm2` | for install **pm2** in ubuntu/centos machine/server (automatically install nodejs before install pm2)
+`./setup ubuntu/centos nodemon` | for install **nodemon** in ubuntu/centos machine/server (automatically install nodejs before install nodemon)
 ----------------------------------------
 
 This script help you to *open/close/status* of firewall ports in centos or ubuntu distribution
