@@ -13,6 +13,7 @@ chmod 755 setup.sh
 -----------------------------------------------
 
 Script | Usage
------------- | -------------
+------------- | --------------
+`./setup.sh --help,-h` | help command
 `./setup.sh centos` | for install in centos machine
 `./setup.sh ubuntu` | for install in ubuntu machine
