@@ -1,5 +1,6 @@
 # Sepi
-## prepare nodejs server for production and manage your firewall
+## Prepare nodejs server for production and manage your firewall
+### All things you need after buy single host
 
 -----------------------------------------------
 This script for installing **mongodb , nodejs , nodemon , pm2** in centos or ubuntu machine/server but you can choose which one of them do you want to install
