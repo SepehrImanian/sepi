@@ -1,6 +1,5 @@
 # Sepi
-## Prepare nodejs server for production and manage your firewall
-### All things you need after buy single host :)
+## Setup MERN or MEAN stack for test environment and manage your firewall
 
 -----------------------------------------------
 This script for installing **mongodb , nodejs , nodemon , pm2** in centos or ubuntu machine/server but you can choose which one of them do you want to install
